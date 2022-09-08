@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:mule-azure-sb="http://www.mulesoft.org/schema/mule/mule-azure-sb"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/mule-azure-sb http://www.mulesoft.org/schema/mule/mule-azure-sb/current/mule-mule-azure-sb.xsd">
+
+    <mule-azure-sb:config name="config" configId="configId">
+        <mule-azure-sb:connection requiredParameter="aValue" />
+    </mule-azure-sb:config>
+
+    <flow name="sayHiFlow">
+        <mule-azure-sb:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <mule-azure-sb:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
